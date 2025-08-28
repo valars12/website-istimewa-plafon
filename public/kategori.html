@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kategori Produk - Istimewa Plafon</title>
+    <link rel="icon" href="img/logo.jpg">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
+</head>
+<body>
+
+    <div class="position">
+    <header>
+        <!-- Logo -->
+        <div class="logo">
+            <img class="logo-in" src="img/logo.jpg" alt="logo">
+        </div>
+        <!-- Navigasi -->
+        <nav>
+            <div class="burger" id="burger-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-list" id="nav-list">
+                <a href="index.html" class="nav-top"><li class="nav-top">Beranda</li></a>
+                <a href="produk.html" class="nav-top"><li class="nav-top">Produk</li></a>
+                <li class="nav-top category-dropdown">
+                    <button class="dropdown-btn">Kategori</button>
+                    <div class="dropdown-content">
+                        <a href="#wpc-premium">WPC Premium</a>
+                        <a href="#pvc">PVC</a>
+                        <a href="#wpc-wallpanel">WPC Wallpanel</a>
+                    </div>
+                </li>
+                <a href="tentang.html" class="nav-top"><li class="nav-top">Tentang Kami</li></a>
+                <a href="kontak.html" class="nav-top"><li class="nav-top">Kontak</li></a>
+            </ul>
+        </nav>
+
+        <!-- Order -->
+        <div class="order" onclick="window.location.href='keranjang.html'">
+            <div class="icon-order">
+                <img class="order-img" src="img/cart.png" alt="cart-keranjang">
+            </div>
+            <div class="text-order">
+                <p class="text">Keranjang</p>
+            </div>
+            <div class="cart-count" id="cart-count">0</div>
+        </div>
+    </header>
+    </div>
+
+    <!-- Section -->
+    <div class="item">
+        <div class="item-text">
+            <h1 class="item-product1">Kategori Produk</h1>
+        </div>
+    </div>
+
+    <!-- WPC Premium Category -->
+    <section id="wpc-premium" class="category-section" data-aos="fade-up">
+        <div class="container">
+            <h2 class="category-title">WPC Premium</h2>
+            <p class="category-desc">Plafon WPC premium anti air, anti rayap, dan ramah lingkungan</p>
+            <div class="container-image">
+                <div class="card-image">
+                    <img class="image1" src="img/wpc premium 1.jpg" alt="">
+                    <h3 class="title-text1">WPC Premium 1</h3>
+                    <h5 class="description-text2">Dengan tampilan elegan menyerupai kayu alami untuk dinding, plafon, maupun lantai.</h5>
+                    <div class="cost-text">Rp 85.000/Lembar</div>
+                    <div class="add-to-cart-text" onclick="addToCart('WPC Premium 1', 85000, 'img/wpc premium 1')">+ Tambah ke Keranjang</div>
+                </div>
+                <div class="card-image">
+                    <img class="image1" src="img/wpc premium 2.jpg" alt="">
+                    <h3 class="title-text1">WPC Premium 2</h3>
+                    <h5 class="description-text2">Dengan tampilan elegan menyerupai kayu alami untuk dinding, plafon, maupun lantai.</h5>
+                    <div class="cost-text">Rp 85.000/Lembar</div>
+                    <div class="add-to-cart-text" onclick="addToCart('WPC Premium 2', 85000, 'img/wpc premium 2.jpg')">+ Tambah ke Keranjang</div>
+                </div>
+                <div class="card-image">
+                    <img class="image1" src="img/wpc premium 3.jpg" alt="">
+                    <h3 class="title-text1">WPC Premium 3</h3>
+                    <h5 class="description-text2">Desain elegan dengan kombinasi garis vertikal metalik dan tekstur halus pada permukaannya.</h5>
+                    <div class="cost-text">Rp 85.000/Lembar</div>
+                    <div class="add-to-cart-text" onclick="addToCart('WPC Premium 3', 95000, 'img/wpc premium 3.jpg')">+ Tambah ke Keranjang</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PVC Category -->
+    <section id="pvc" class="category-section" data-aos="fade-up">
+        <div class="container">
+            <h2 class="category-title">Plafon PVC </h2>
+            <p class="category-desc">Plafon PVC yang simpel dan bersih untuk berbagai konsep ruangan</p>
+            <div class="container-image">
+                <div class="card-image">
+                    <img class="image1" src="img/pvc 1.jpg" alt="">
+                    <h3 class="title-text1">PVC 1</h3>
+                    <h5 class="description-text2">Tampilan permukaan polos dengan tekstur garis tipis yang rapi.</h5>
+                    <div class="cost-text">Rp 11.000/meter</div>
+                    <div class="add-to-cart-text" onclick="addToCart('PVC 1', 11000, 'img/pvc 1.jpg')">+ Tambah ke Keranjang</div>
+                </div>
+                <div class="card-image">
+                    <img class="image1" src="img/pvc 2.jpg" alt="">
+                    <h3 class="title-text1">PVC 2</h3>
+                    <h5 class="description-text2">Motif serat kayu dengan aksen garis halus dan pola lingkaran menyerupai urat alami kayu.</h5>
+                    <div class="cost-text">Rp 11.000/meter</div>
+                    <div class="add-to-cart-text" onclick="addToCart('PVC 2', 11000, 'img/pvc 2.jpg')">+ Tambah ke Keranjang</div>
+                </div>
+                <div class="card-image">
+                    <img class="image1" src="img/pvc 3.jpg" alt="">
+                    <h3 class="title-text1">PVC 3</h3>
+                    <h5 class="description-text2">Tampilkan permukaan polos dengan tekstur garis tipis yang rapi.</h5>
+                    <div class="cost-text">Rp 11.000/meter</div>
+                    <div class="add-to-cart-text" onclick="addToCart('PVC 3', 11000, 'img/pvc 3.jpg')">+ Tambah ke Keranjang</div>
+                </div>
+                <div class="card-image">
+                    <img class="image1" src="img/pvc 4.jpg" alt="">
+                    <h3 class="title-text1">PVC 4</h3>
+                    <h5 class="description-text2">Bermotif serat kayu berwarna abu-abu gelap dengan garis halus vertikal, memberikan kesan modern, elegan, dan tegas untuk interior.</h5>
+                    <div class="cost-text">Rp 11.000/meter</div>
+                    <div class="add-to-cart-text" onclick="addToCart('PVC 4', 11000, 'img/pvc 4.jpg')">+ Tambah ke Keranjang</div>
+                </div>
+                <div class="card-image">
+                    <img class="image1" src="img/pvc glossy motif 1.jpg" alt="">
+                    <h3 class="title-text1">PVC Glossy Motif 1</h3>
+                    <h5 class="description-text2">Motif serat kayu berwarna coklat kemerahan dengan gradasi alami yang memberikan tampilan hangat dan klasik.</h5>
+                    <div class="cost-text">Rp 11.000/meter</div>
+                    <div class="add-to-cart-text" onclick="addToCart('PVC Glossy Motif 1', 11000, 'img/pvc glossy motif 1.jpg')">+ Tambah ke Keranjang</div>
+                </div>
+                <div class="card-image">
+                    <img class="image1" src="img/pvc glossy motif 2.jpg" alt="">
+                    <h3 class="title-text1">PVC Glossy motif 2</h3>
+                    <h5 class="description-text2">Motif serat kayu berwarna coklat kemerahan dengan gradasi alami yang memberi tampilan hangat dan klasik.</h5>
+                    <div class="cost-text">Rp 11.000/meter</div>
+                    <div class="add-to-cart-text" onclick="addToCart('PVC Glossy Motif 2', 11000, 'img/pvc glossy motif 2.jpg')">+ Tambah ke Keranjang</div>
+                </div>
+                <div class="card-image">
+                    <img class="image1" src="img/pvc motif kayu asli 1.jpg" alt="">
+                    <h3 class="title-text1">PVC Motif Kayu Asli 1</h3>
+                    <h5 class="description-text2">Motif serat kayu alami berwarna cokelat hangat, memberikan kesan elegan dan natural.</h5>
+                    <div class="cost-text">Rp 13.000/meter</div>
+                    <div class="add-to-cart-text" onclick="addToCart('PVC Motif Kayu Asli 1', 13000, 'img/pvc motif kayu asli 1.jpg')">+ Tambah ke Keranjang</div>
+                </div>
+                <div class="card-image">
+                    <img class="image1" src="img/pvc motif kayu asli 2.jpg" alt="">
+                    <h3 class="title-text1">PVC Motif Kayu Asli 2</h3>
+                    <h5 class="description-text2">Motif garis vertikal metalik dengan efek pelangi, dipadukan motif floral timbul putih yang memberi kesan modern dan elegan.</h5>
+                    <div class="cost-text">Rp 11.000/meter</div>
+                    <div class="add-to-cart-text" onclick="addToCart('PVC Motif Kayu Asli 2', 11000, 'img/pvc motif kayu asli.jpg')">+ Tambah ke Keranjang</div>
+                </div>
+                <div class="card-image">
+                    <img class="image1" src="img/plafon pvc 1.jpg" alt="">
+                    <h3 class="title-text1">Plafon PVC 1</h3>
+                    <h5 class="description-text2">Plastik mengkilap yang kuat, tahan air, dan cocok untuk cetak premium.</h5>
+                    <div class="cost-text">Rp 11.000/meter</div>
+                    <div class="add-to-cart-text" onclick="addToCart('Plafon PVC 1', 11000, 'img/plafon pvc 1.jpg')">+ Tambah ke Keranjang</div>
+                </div>
+                <div class="card-image">
+                    <img class="image1" src="img/plafon pvc 2.jpg" alt="">
+                    <h3 class="title-text1">Plafon PVC 2</h3>
+                    <h5 class="description-text2">Motif serat kayu dengan aksen garis halus dan pola lingkaran menyerupai urat alami kayu.</h5>
+                    <div class="cost-text">Rp 11.000/meter</div>
+                    <div class="add-to-cart-text" onclick="addToCart('Plafon PVC 2', 11000, 'img/plafon pvc 2.jpg')">+ Tambah ke Keranjang</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WPC Wallpanel Category -->
+    <section id="wpc-wallpanel" class="category-section" data-aos="fade-up">
+        <div class="container">
+            <h2 class="category-title">WPC Wallpanel</h2>
+            <p class="category-desc">Wallpanel WPC untuk dinding dengan berbagai motif dan tekstur</p>
+            <div class="container-image">
+                <div class="card-image">
+                    <img class="image1" src="img/wpc wallpanel 1.jpg" alt="">
+                    <h3 class="title-text1">WPC Wallpanel 1</h3>
+                    <h5 class="description-text2">Bermotif panel 3D dengan motif serat kayu coklat alami.</h5>
+                    <div class="cost-text">Rp 80.000/Gulung</div>
+                    <div class="add-to-cart-text" onclick="addToCart('WPC Wallpanel 1', 80000, 'img/wpc wallpanel 1.jpg')">+ Tambah ke Keranjang</div>
+                </div>
+                <div class="card-image">
+                    <img class="image1" src="img/wpc wallpanel 2.jpg" alt="">
+                    <h3 class="title-text1">WPC Wallpanel 2</h3>
+                    <h5 class="description-text2">Bermotif panel 3D dengan motif serat kayu coklat alami.</h5>
+                    <div class="cost-text">Rp 80.000/Gulung</div>
+                    <div class="add-to-cart-text" onclick="addToCart('WPC Wallpanel 2', 80000, 'img/wpc wallpanel 2.jpg')">+ Tambah ke Keranjang</div>
+                </div>
+                <div class="card-image">
+                    <img class="image1" src="img/wpc wallpanel 3.jpg" alt="">
+                    <h3 class="title-text1">WPC Wallpanel 3</h3>
+                    <h5 class="description-text2">Bermotif panel 3D dengan motif serat kayu coklat alami.</h5>
+                    <div class="cost-text">Rp 80.000/Gulung</div>
+                    <div class="add-to-cart-text" onclick="addToCart('WPC Wallpanel 3', 80000, 'img/wpc wallpanel 3.jpg')">+ Tambah ke Keranjang</div>
+                </div>
+                <div class="card-image">
+                    <img class="image1" src="img/wpc wallpanel 4.jpg" alt="">
+                    <h3 class="title-text1">WPC Wallpanel 4</h3>
+                    <h5 class="description-text2">Bermotif panel 3D dengan motif serat kayu coklat alami.</h5>
+                    <div class="cost-text">Rp 80.000/Gulung</div>
+                    <div class="add-to-cart-text" onclick="addToCart('WPC Wallpanel 4', 80000, 'img/wpc wallpanel 4.jpg')">+ Tambah ke Keranjang</div>
+                </div>
+                <div class="card-image">
+                    <img class="image1" src="img/wpc wallpanel 5.jpg" alt="">
+                    <h3 class="title-text1">WPC Wallpanel 5</h3>
+                    <h5 class="description-text2">Bermotif panel 3D dengan motif serat kayu coklat alami.</h5>
+                    <div class="cost-text">Rp 80.000/Gulung</div>
+                    <div class="add-to-cart-text" onclick="addToCart('WPC Wallpanel 5', 80000, 'img/wpc wallpanel 5.jpg')">+ Tambah ke Keranjang</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- PVC Glossy Category -->
+    <!-- <section id="pvc-glossy" class="category-section" data-aos="fade-up">
+        <div class="container">
+            <h2 class="category-title">Plafon PVC Glossy</h2>
+            <p class="category-desc">Koleksi plafon PVC dengan finishing glossy mengkilap untuk tampilan yang mewah dan modern</p>
+            <div class="container-image">
+                <div class="card-image">
+                    <img class="image1" src="img/plafon pvc 2.jpg" alt="">
+                    <h3 class="title-text1">PVC Glossy Putih</h3>
+                    <h5 class="description-text2">Plafon PVC glossy putih klasik untuk segala jenis ruangan</h5>
+                    <div class="cost-text">Rp 55.000/m²</div>
+                    <div class="add-to-cart-text" onclick="addToCart('PVC Glossy Putih', 55000, 'img/plafon pvc 2.jpg')">+ Tambah ke Keranjang</div>
+                </div>
+                <div class="card-image">
+                    <img class="image1" src="img/pvc glossy cream.jpg" alt="">
+                    <h3 class="title-text1">PVC Glossy Cream</h3>
+                    <h5 class="description-text2">Plafon PVC glossy warna cream untuk nuansa hangat</h5>
+                    <div class="cost-text">Rp 58.000/m²</div>
+                    <div class="add-to-cart-text" onclick="addToCart('PVC Glossy Cream', 58000, 'img/pvc glossy cream.jpg')">+ Tambah ke Keranjang</div>
+                </div>
+            </div>
+        </div>
+    </section> -->
+
+    <!-- PVC Motif Category -->
+    <!-- <section id="pvc-motif" class="category-section" data-aos="fade-up">
+        <div class="container">
+            <h2 class="category-title">Plafon PVC Motif Kayu</h2>
+            <p class="category-desc">Plafon PVC dengan berbagai motif kayu natural untuk nuansa hangat dan alami</p>
+            <div class="container-image">
+                <div class="card-image">
+                    <img class="image1" src="img/plafon pvc motif.jpg" alt="">
+                    <h3 class="title-text1">PVC Motif Kayu Jati</h3>
+                    <h5 class="description-text2">Motif kayu jati yang elegan dan natural</h5>
+                    <div class="cost-text">Rp 65.000/m²</div>
+                    <div class="add-to-cart-text" onclick="addToCart('PVC Motif Kayu Jati', 65000, 'img/plafon pvc motif.jpg')">+ Tambah ke Keranjang</div>
+                </div>
+                <div class="card-image">
+                    <img class="image1" src="img/pvc motif mahoni.jpg" alt="">
+                    <h3 class="title-text1">PVC Motif Mahoni</h3>
+                    <h5 class="description-text2">Motif kayu mahoni dengan warna yang kaya</h5>
+                    <div class="cost-text">Rp 68.000/m²</div>
+                    <div class="add-to-cart-text" onclick="addToCart('PVC Motif Mahoni', 68000, 'img/pvc motif mahoni.jpg')">+ Tambah ke Keranjang</div>
+                </div>
+            </div>
+        </div>
+    </section> -->
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-links">
+            <a href="https://www.instagram.com/instimewaplafon86?igsh=MTdldG9udjJ1NW4ybQ==" class="footer-link">
+                <img src="img/instagram.png" alt="Instagram" class="footer-icon"> Instagram
+            </a>
+            <a href="https://wa.me/082136244654" class="footer-link">
+                <img src="img/whatsapp.png" alt="WhatsApp" class="footer-icon"> WhatsApp
+            </a>
+            <a href="mailto:istimewaplafon@gmail.com" class="footer-link">
+                <img src="img/gmail.png" alt="Email" class="footer-icon"> Email
+            </a>
+            <a href="https://maps.app.goo.gl/Z47WDUinSyZZVWqp6" class="footer-link">
+                <img src="img/location.png" alt="Alamat" class="footer-icon"> Alamat
+            </a>
+        </div>
+        <div class="footer-copyright">
+            &copy; 2025 Istimewa Plafon. All rights reserved.
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 600, 
+            once: true     
+        });
+    </script>
+
+</body>
+</html>

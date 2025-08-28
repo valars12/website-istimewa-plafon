@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Istimewa Plafon - Plafon PVC Berkualitas Premium</title>
+    <meta name="description" content="Penyedia plafon PVC berkualitas premium dengan harga kompetitif. Solusi lengkap plafon modern untuk rumah, kantor, dan bangunan komersial." />
+    <link rel="icon" href="img/logo.jpg">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
+</head>
+<body>
+
+    <div class="position">
+    <header>
+        <!-- Logo -->
+        <div class="logo">
+            <img class="logo-in" src="img/logo.jpg" alt="">
+        </div>
+        <!-- Navigasi -->
+        <nav>
+            <div class="burger" id="burger-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-list" id="nav-list">
+                <a href="index.html" class="nav-top"><li class="nav-top">Beranda</li></a>
+                <a href="produk.html" class="nav-top"><li class="nav-top">Produk</li></a>
+                <li class="nav-top category-dropdown">
+                    <button class="dropdown-btn">Kategori</button>
+                    <div class="dropdown-content">
+                        <a href="kategori.html#wpc-premium">WPC Premium</a>
+                        <a href="kategori.html#pvc">PVC</a>
+                        <a href="kategori.html#wpc-wallpanel">WPC Wallpanel</a>
+                    </div>
+                </li>
+                <a href="tentang.html" class="nav-top"><li class="nav-top">Tentang Kami</li></a>
+                <a href="kontak.html" class="nav-top"><li class="nav-top">Kontak</li></a>
+            </ul>
+        </nav>
+
+        <!-- Order -->
+        <div class="order" onclick="window.location.href='keranjang.html'">
+            <div class="icon-order">
+                <img class="order-img" src="img/cart.png" alt="cart-keranjang">
+            </div>
+            <div class="text-order">
+                <p class="text">Keranjang</p>
+            </div>
+            <div class="cart-count" id="cart-count">0</div>
+        </div>
+    </header>
+    </div>
+    
+    <!-- Section -->
+    <section>
+        <div class="hero">
+            <div class="hero-card">
+                <div class="hero-text">
+                    <h1 class="hero-t1">
+                        Transformasi Ruangan dengan 
+                        Plafon Berkualitas Premium
+                    </h1>
+                    <h5 class="hero-t2">
+                        Solusi lengkap plafon modern untuk rumah, kantor,
+                        dan bangunan komersial dengan harga terjangkau
+                        dan kualitas terjamin.
+                    </h5>
+                <div class="hero-click">
+                    <h5 class="click-product1" onclick="window.location.href='produk.html'">
+                        Lihat Produk
+                    </h5>
+                    <h5 class="click-product2" onclick="window.location.href='kontak.html'">
+                        Konsultasi Gratis
+                    </h5>
+                </div>
+                </div>
+                <div class="hero-card-img">
+                    <img class="hero-img" src="img/icon-logo.png" alt="">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Container Product -->
+    <div class="container">
+        <div class="container-product">
+            <h1 class="cont-text1">Produk Unggulan</h1>
+            <h5 class="cont-text2">Plafon Berkualitas Premium dengan Harga Kompetitif</h5>
+        </div>
+        <div class="cont-img">
+            <div class="img-card">
+                <img class="img1" src="img/plafon pvc 1.jpg" alt="">
+                <h3 class="img-text1">Plafon PVC</h3>
+                <h5 class="img-text2">
+                    Plastik mengkilap yang kuat,
+                    tahan air, dan cocok untuk cetak premium
+                </h5>
+                <div class="price-text">Rp 45.000/Lembar</div>
+                <div class="plus-text" onclick="addToCart('Plafon PVC', 45000, 'img/plafon pvc 1.jpg')">+ Tambah ke Keranjang</div>
+            </div>
+            <div class="img-card">
+                <img class="img1" src="img/plafon pvc 2.jpg" alt="">
+                <h3 class="img-text1">Plafon PVC Glossy</h3>
+                <h5 class="img-text2">
+                    Plastik mengkilap yang kuat,
+                    tahan air, dan cocok untuk cetak premium
+                </h5>
+                <div class="price-text">Rp 55.000/Lembar</div>
+                <div class="plus-text" onclick="addToCart('Plafon PVC Glossy', 55000, 'img/plafon pvc 2.jpg')">+ Tambah ke Keranjang</div>
+            </div>
+            <div class="img-card">
+                <img class="img1" src="img/plafon wpc premium.jpg" alt="">
+                <h3 class="img-text1">Plafon WPC Premium</h3>
+                <h5 class="img-text2">
+                    Plastik mengkilap yang kuat,
+                    tahan air, dan cocok untuk cetak premium
+                </h5>
+                <div class="price-text">Rp 85.000/Lembar</div>
+                <div class="plus-text" onclick="addToCart('Plafon WPC Premium', 85000, 'img/plafon wpc premium.jpg')">+ Tambah ke Keranjang</div>
+            </div>
+            <div class="img-card">
+                <img class="img1" src="img/walpaper.jpg" alt="">
+                <h3 class="img-text1">Wallpaper</h3>
+                <h5 class="img-text2">
+                    Plastik mengkilap yang kuat,
+                    tahan air, dan cocok untuk cetak premium
+                </h5>
+                <div class="price-text">Rp 25.000/Lembar</div>
+                <div class="plus-text" onclick="addToCart('Wallpaper', 25000, 'img/walpaper.jpg')">+ Tambah ke Keranjang</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Category -->
+    <div class="category">
+        <div class="category-top">
+            <h1 class="toptext">
+                Kategori Plafon
+            </h1>
+            <h5 class="bottomtext">
+                Pilih jenis plafon yang sesuai
+                dengan kebutuhan dan budget anda
+            </h5>
+        </div>
+        <br>
+        <div class="category-flex">
+            <div class="category-card" onclick="window.location.href='kategori.html#pvc'">
+                <div class="card1">
+                    <img src="img/icon-plafon.png" alt="" class="card1-img">
+                    <h4 class="card1-text1">
+                        WPC Premium
+                    </h4>
+                    <h5 class="card1-text2">
+                        Material panel berkualitas tinggi 
+                        <p>
+                            berbahan campuran kayu dan plastik.
+                        </p>
+                    </h5>
+                </div>
+            </div>
+            <div class="category-card" onclick="window.location.href='kategori.html#wpc-premium'">
+                <div class="card1">
+                    <img src="img/icon-plafon.png" alt="" class="card1-img">
+                    <h4 class="card1-text1">
+                        PVC
+                    </h4>
+                    <h5 class="card1-text2">
+                        Ringan dan tahan air, dengan
+                        <p>
+                            berbagai motif elegan.
+                        </p>
+                    </h5>
+                </div>
+            </div>
+            <div class="category-card" onclick="window.location.href='kategori.html#wallpanel'">
+                <div class="card1">
+                    <img src="img/icon-plafon.png" alt="" class="card1-img">
+                    <h4 class="card1-text1">
+                        WPC Wallpanel
+                    </h4>
+                    <h5 class="card1-text2">
+                        Panel dinding berbahan campuran kayu dan
+                        <p>
+                            plastik yang kuat, tahan air, anti rayap,
+                        </p>
+                        <p>
+                            serta memiliki tampilan elegan menyerupai
+                        </p>
+                        <p>
+                            kayu alami untuk mempercantik interior
+                        </p>
+                        <p>
+                            maupun eksterior
+                        </p>
+                    </h5>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Container Mid -->
+    <!-- <div class="container-mid">
+        <div class="mid-text">
+            <h1 class="middle1">500+</h1>
+            <h5 class="middle2">Proyek Selesai</h5>
+        </div>
+        <div class="mid-text">
+            <h1 class="middle1">98%</h1>
+            <h5 class="middle2">Kepuasan Pelanggan</h5>
+        </div>
+        <div class="mid-text">
+            <h1 class="middle1">15</h1>
+            <h5 class="middle2">Tahun Pengalaman</h5>
+        </div>
+        <div class="mid-text">
+            <h1 class="middle1">50+</h1>
+            <h5 class="middle2">Jenis Produk</h5>
+        </div>
+    </div> -->
+    
+    <!-- Tentang Kami -->
+    <section class="about-section" data-aos="fade-up">
+        <div class="about-container">
+            <h2 class="about-title">Tentang Kami</h2>
+            <p class="about-desc">
+                Istimewa Plafon adalah penyedia
+                plafon PVC berkualitas premium
+                dengan harga kompetitif. kami berkomitmen
+                memberikan produk terbaik,
+                layanan profesional, dan solusi
+                interior yang elegan untuk rumah
+                maupun bisnis Anda. Dengan pengalaman
+                berbagai proyek, kami siap membantu
+                mewujudkan hunian impian Anda.
+            </p>
+            <div class="about-features">
+                <div class="feature-item">
+                    <img src="img/material premium.jpg" alt="" class="feature-icon">
+                    <span>Material Premium</span>
+                </div>
+                <div class="feature-item">
+                    <img src="img/about us 1.jpg" alt="" class="feature-icon">
+                    <span>Pemasangan Profesional</span>
+                </div>
+                <div class="feature-item">
+                    <img src="img/harga terjangkau.jpg" alt="" class="feature-icon">
+                    <span>Harga Terjangkau</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Galeri Hasil Pemasangan -->
+    <section class="gallery-section" data-aos="fade-up">
+        <div class="gallery-container">
+            <h2 class="gallery-title">Gallery Hasil Pemasangan</h2>
+            <p class="gallery-desc">
+                Lihat hasil pemasangan plafon premium kami di berbagai proyek
+            </p>
+            <div class="gallery-grid">
+                <div class="gallery-item" data-aos="fade-up" data-aos-delay="100">
+                    <img src="img/galery 1.jpg" alt="Hasil Pemasangan 1" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h4>Ruang Tamu Modern</h4>
+                    </div>
+                </div>
+                <div class="gallery-item" data-aos="fade-up" data-aos-delay="200">
+                    <img src="img/galery 2.jpg" alt="Hasil Pemasangan 2" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h4>Kantor Corporate</h4>
+                    </div>
+                </div>
+                <div class="gallery-item" data-aos="fade-up" data-aos-delay="300">
+                    <img src="img/galery 3.jpg" alt="Hasil Pemasangan 3" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h4>Meeting Room</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimoni -->
+     <section class="testimoni-section">
+        <h1 class="testimoni-text">
+            Testimoni Pelanggan
+        </h1>
+        <p class="testimoni-text-bot">
+            Apa kata mereka tentang layanan kami?
+        </p>
+        <div class="testimoni-img">
+            
+        </div>
+     </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-links">
+            <a href="https://www.instagram.com/instimewaplafon86?igsh=MTdldG9udjJ1NW4ybQ==" class="footer-link" data-aos="fade-up">
+                <img src="img/instagram.png" alt="Instagram" class="footer-icon"> Instagram
+            </a>
+            <a href="https://wa.me/082136244654" class="footer-link" data-aos="fade-up" data-aos-delay="100">
+                <img src="img/whatsapp.png" alt="WhatsApp" class="footer-icon"> WhatsApp
+            </a>
+            <a href="mailto:istimewaplafon@gmail.com" class="footer-link" data-aos="fade-up" data-aos-delay="200">
+                <img src="img/gmail.png" alt="Email" class="footer-icon"> Email
+            </a>
+            <a href="https://maps.app.goo.gl/Z47WDUinSyZZVWqp6" class="footer-link" data-aos="fade-up" data-aos-delay="300">
+                <img src="img/location.png" alt="Alamat" class="footer-icon"> Alamat
+            </a>
+        </div>
+        <div class="footer-copyright" data-aos="fade-up" data-aos-delay="400">
+            &copy; 2025 Istimewa Plafon. All rights reserved.
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 600, 
+            once: true     
+        });
+    </script>
+
+</body>
+</html>

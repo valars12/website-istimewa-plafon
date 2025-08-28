@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kontak - Istimewa Plafon</title>
+    <link rel="icon" href="img/logo.jpg">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
+</head>
+<body>
+
+    <div class="position">
+    <header>
+        <!-- Logo -->
+        <div class="logo">
+            <img class="logo-in" src="img/logo.jpg" alt="logo">
+        </div>
+        <!-- Navigasi -->
+        <nav>
+            <div class="burger" id="burger-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-list" id="nav-list">
+                <a href="index.html" class="nav-top"><li class="nav-top">Beranda</li></a>
+                <a href="produk.html" class="nav-top"><li class="nav-top">Produk</li></a>
+                <li class="nav-top category-dropdown">
+                    <button class="dropdown-btn">Kategori</button>
+                    <div class="dropdown-content">
+                        <a href="kategori.html#wpc-premium">WPC Premium</a>
+                        <a href="kategori.html#pvc">PVC</a>
+                        <a href="kategori.html#wpc-wallpanel">WPC Wallpanel</a>
+                    </div>
+                </li>
+                <a href="tentang.html" class="nav-top"><li class="nav-top">Tentang Kami</li></a>
+                <a href="kontak.html" class="nav-top"><li class="nav-top">Kontak</li></a>
+            </ul>
+        </nav>
+
+        <!-- Order -->
+        <div class="order" onclick="window.location.href='keranjang.html'">
+            <div class="icon-order">
+                <img class="order-img" src="img/cart.png" alt="cart-keranjang">
+            </div>
+            <div class="text-order">
+                <p class="text">Keranjang</p>
+            </div>
+            <div class="cart-count" id="cart-count">0</div>
+        </div>
+    </header>
+    </div>
+
+    <!-- Section -->
+    <div class="item">
+        <div class="item-text">
+            <h1 class="item-product1">Hubungi Kami</h1>
+        </div>
+    </div>
+
+    <!-- Contact Section -->
+    <section class="contact-page-section">
+        <div class="contact-page-container">
+            <div class="contact-intro">
+                <h2 class="contact-page-title">Konsultasi & Informasi</h2>
+                <p class="contact-page-desc">
+                    Hubungi kami untuk konsultasi gratis, pemesanan, atau informasi lebih lanjut mengenai produk plafon berkualitas premium kami.
+                </p>
+            </div>
+
+            <div class="contact-methods">
+                <!-- WhatsApp -->
+                <div class="contact-method-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="contact-method-icon">
+                        <img src="img/whatsapp.png" alt="WhatsApp" class="method-icon">
+                    </div>
+                    <div class="contact-method-content">
+                        <h3>WhatsApp</h3>
+                        <p>Konsultasi langsung dan cepat</p>
+                        <a href="https://wa.me/082136244654" class="contact-method-btn">
+                            Chat WhatsApp
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Phone -->
+                <div class="contact-method-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="contact-method-icon">
+                        <img src="img/icon-plafon.png" alt="Phone" class="method-icon">
+                    </div>
+                    <div class="contact-method-content">
+                        <h3>Telepon</h3>
+                        <p>Hubungi kami secara langsung</p>
+                        <a href="tel:082136244654" class="contact-method-btn">
+                            082136244654
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Email -->
+                <div class="contact-method-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="contact-method-icon">
+                        <img src="img/gmail.png" alt="Email" class="method-icon">
+                    </div>
+                    <div class="contact-method-content">
+                        <h3>Email</h3>
+                        <p>Kirim pertanyaan detail</p>
+                        <a href="mailto:istimewaplafon@gmail.com" class="contact-method-btn">
+                            istimewaplafon@gmail.com
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Instagram -->
+                <div class="contact-method-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="contact-method-icon">
+                        <img src="img/instagram.png" alt="Instagram" class="method-icon">
+                    </div>
+                    <div class="contact-method-content">
+                        <h3>Instagram</h3>
+                        <p>Lihat portofolio kami</p>
+                        <a href="https://www.instagram.com/instimewaplafon86?igsh=MTdldG9udjJ1NW4ybQ==" class="contact-method-btn">
+                            @istimewaplafon86
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contact Form -->
+            <div class="contact-form-section" data-aos="fade-up" data-aos-delay="500">
+                <h3>Kirim Pesan</h3>
+                <form class="contact-page-form" onsubmit="sendMessage(event)">
+                    <div class="form-group">
+                        <label for="name">Nama Lengkap *</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Nomor WhatsApp *</label>
+                        <input type="tel" id="phone" name="phone" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email (Opsional)</label>
+                        <input type="email" id="email" name="email">
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Subjek *</label>
+                        <select id="subject" name="subject" required>
+                            <option value="">Pilih Subjek</option>
+                            <option value="konsultasi">Konsultasi Produk</option>
+                            <option value="harga">Pertanyaan Harga</option>
+                            <option value="pemasangan">Layanan Pemasangan</option>
+                            <option value="custom">Pesanan Custom</option>
+                            <option value="lainnya">Lainnya</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Pesan *</label>
+                        <textarea id="message" name="message" rows="5" required placeholder="Tuliskan detail pertanyaan atau kebutuhan Anda..."></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">
+                        Kirim via WhatsApp
+                    </button>
+                </form>
+            </div>
+
+            <!-- Location & Hours -->
+            <div class="location-section" data-aos="fade-up" data-aos-delay="600">
+                <div class="location-info">
+                    <h3>Lokasi & Jam Operasional</h3>
+                    <div class="location-details">
+                        <div class="location-item">
+                            <img src="img/location.png" alt="Location" class="location-icon">
+                            <div>
+                                <h4>Alamat</h4>
+                                <p>Jl. Contoh Alamat No. 123<br>Kota, Provinsi 12345</p>
+                                <a href="https://maps.app.goo.gl/Z47WDUinSyZZVWqp6" class="map-link">Lihat di Maps</a>
+                            </div>
+                        </div>
+                        <div class="location-item">
+                            <img src="img/clock.png" alt="Clock" class="location-icon">
+                            <div>
+                                <h4>Jam Operasional</h4>
+                                <p>Senin - Sabtu: 08:00 - 17:00<br>Minggu: 09:00 - 15:00</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-links">
+            <a href="https://www.instagram.com/instimewaplafon86?igsh=MTdldG9udjJ1NW4ybQ==" class="footer-link">
+                <img src="img/instagram.png" alt="Instagram" class="footer-icon"> Instagram
+            </a>
+            <a href="https://wa.me/082136244654" class="footer-link">
+                <img src="img/whatsapp.png" alt="WhatsApp" class="footer-icon"> WhatsApp
+            </a>
+            <a href="mailto:istimewaplafon@gmail.com" class="footer-link">
+                <img src="img/gmail.png" alt="Email" class="footer-icon"> Email
+            </a>
+            <a href="https://maps.app.goo.gl/Z47WDUinSyZZVWqp6" class="footer-link">
+                <img src="img/location.png" alt="Alamat" class="footer-icon"> Alamat
+            </a>
+        </div>
+        <div class="footer-copyright">
+            &copy; 2025 Istimewa Plafon. All rights reserved.
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 600, 
+            once: true     
+        });
+
+        function sendMessage(event) {
+            event.preventDefault();
+            
+            const name = document.getElementById('name').value;
+            const phone = document.getElementById('phone').value;
+            const email = document.getElementById('email').value;
+            const subject = document.getElementById('subject').value;
+            const message = document.getElementById('message').value;
+            
+            let whatsappMessage = `Halo Istimewa Plafon!\n\n`;
+            whatsappMessage += `Nama: ${name}\n`;
+            whatsappMessage += `No. WhatsApp: ${phone}\n`;
+            if (email) whatsappMessage += `Email: ${email}\n`;
+            whatsappMessage += `Subjek: ${subject}\n\n`;
+            whatsappMessage += `Pesan:\n${message}`;
+            
+            const encodedMessage = encodeURIComponent(whatsappMessage);
+            const whatsappUrl = `https://wa.me/082136244654?text=${encodedMessage}`;
+            
+            window.open(whatsappUrl, '_blank');
+        }
+    </script>
+
+</body>
+</html>

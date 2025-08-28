@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Keranjang - Istimewa Plafon</title>
+    <link rel="icon" href="img/icon-logo.png">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
+</head>
+<body>
+
+    <div class="position">
+    <header>
+        <!-- Logo -->
+        <div class="logo">
+            <img class="logo-in" src="img/logo.jpg" alt="logo">
+        </div>
+        <!-- Navigasi -->
+        <nav>
+            <div class="burger" id="burger-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-list" id="nav-list">
+                <a href="index.html" class="nav-top"><li class="nav-top">Beranda</li></a>
+                <a href="produk.html" class="nav-top"><li class="nav-top">Produk</li></a>
+                <li class="nav-top category-dropdown">
+                    <button class="dropdown-btn">Kategori</button>
+                    <div class="dropdown-content">
+                        <a href="kategori.html#wpc-premium">WPC Premium</a>
+                        <a href="kategori.html#pvc">PVC</a>
+                        <a href="kategori.html#wpc-wallpanel">WPC Wallpanel</a>
+                    </div>
+                </li>
+                <a href="tentang.html" class="nav-top"><li class="nav-top">Tentang Kami</li></a>
+                <a href="kontak.html" class="nav-top"><li class="nav-top">Kontak</li></a>
+            </ul>
+        </nav>
+
+        <!-- Order -->
+        <div class="order active">
+            <div class="icon-order">
+                <img class="order-img" src="img/cart.png" alt="cart-keranjang">
+            </div>
+            <div class="text-order">
+                <p class="text">Keranjang</p>
+            </div>
+            <div class="cart-count" id="cart-count">0</div>
+        </div>
+    </header>
+    </div>
+
+    <!-- Section -->
+    <div class="item">
+        <div class="item-text">
+            <h1 class="item-product1">Keranjang Belanja</h1>
+        </div>
+    </div>
+
+    <!-- Cart Content -->
+    <div class="cart-container">
+        <div class="cart-content" id="cart-content">
+            <!-- Cart items will be loaded here -->
+        </div>
+        
+        <div class="cart-summary" id="cart-summary">
+            <div class="summary-card">
+                <h3>Ringkasan Pesanan</h3>
+                <div class="summary-row">
+                    <span>Total Item:</span>
+                    <span id="total-items">0</span>
+                </div>
+                <div class="summary-row">
+                    <span>Total Luas:</span>
+                    <span id="total-area">0 m²</span>
+                </div>
+                <div class="summary-row total">
+                    <span>Total Harga:</span>
+                    <span id="total-price">Rp 0</span>
+                </div>
+                <button class="checkout-btn" onclick="checkout()">
+                    Konsultasi via WhatsApp
+                </button>
+                <button class="clear-cart-btn" onclick="clearCart()">
+                    Kosongkan Keranjang
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Empty Cart Message -->
+    <div class="empty-cart" id="empty-cart" style="display: none;">
+        <div class="empty-cart-content">
+            <img src="img/empty-cart.png" alt="Keranjang Kosong" class="empty-cart-img">
+            <h2>Keranjang Anda Kosong</h2>
+            <p>Silakan tambahkan produk terlebih dahulu</p>
+            <button class="shop-now-btn" onclick="window.location.href='produk.html'">
+                Belanja Sekarang
+            </button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-links">
+            <a href="https://www.instagram.com/instimewaplafon86?igsh=MTdldG9udjJ1NW4ybQ==" class="footer-link">
+                <img src="img/instagram.png" alt="Instagram" class="footer-icon"> Instagram
+            </a>
+            <a href="https://wa.me/082136244654" class="footer-link">
+                <img src="img/whatsapp.png" alt="WhatsApp" class="footer-icon"> WhatsApp
+            </a>
+            <a href="mailto:istimewaplafon@gmail.com" class="footer-link">
+                <img src="img/gmail.png" alt="Email" class="footer-icon"> Email
+            </a>
+            <a href="https://maps.app.goo.gl/Z47WDUinSyZZVWqp6" class="footer-link">
+                <img src="img/location.png" alt="Alamat" class="footer-icon"> Alamat
+            </a>
+        </div>
+        <div class="footer-copyright">
+            &copy; 2025 Istimewa Plafon. All rights reserved.
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 600, 
+            once: true     
+        });
+    </script>
+
+</body>
+</html>
