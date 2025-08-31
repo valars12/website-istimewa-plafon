@@ -149,6 +149,7 @@ nav .nav-list > .nav-top:hover::after {
 }
 
 /* Order */
+.burger{display:none}
 .order {
     padding: 5px;
     padding-left: 10px;
@@ -397,6 +398,62 @@ nav .nav-list > .nav-top:hover::after {
 
 .img-card button {
     margin-top: 10px;
+}
+
+/* Responsive tweaks */
+@media (max-width: 1024px) {
+  header { padding: 8px 16px; }
+  .hero-t1 { font-size: 2.2rem; line-height: 1.2; }
+  .container { padding: 16px; }
+}
+
+@media (max-width: 768px) {
+  /* Header + Nav */
+  header { max-width: 100%; gap: 8px; }
+  .logo .logo-in { width: 44px; height: 44px; }
+  .burger { display: flex !important; flex-direction: column; gap: 4px; cursor: pointer; }
+  .burger span { display: block; width: 24px; height: 2px; background: #111; }
+  nav .nav-list { display: none; position: absolute; left: 0; right: 0; top: 64px; background: #fff; padding: 12px; box-shadow: 0 8px 24px rgba(0,0,0,.08); flex-direction: column; gap: 6px; z-index: 999; }
+  nav .nav-list.active { display: flex; }
+  nav .nav-list > .nav-top { padding: 10px 12px; display: block; }
+  .dropdown-content { position: static; min-width: 100%; box-shadow: none; border: 1px solid #f1f5f9; margin-top: 6px; }
+  .order { height: 2.2em; width: auto; padding: 6px 12px; }
+
+  /* Hero */
+  .hero { padding: 10px 0; }
+  .hero-card { display: flex; flex-direction: column; align-items: center; gap: 16px; }
+  .hero-text { text-align: center; padding: 0 12px; }
+  .hero-t1 { font-size: 1.8rem; }
+  .hero-t2 { font-size: .95rem; }
+  .hero-card-img .hero-img, .hero-img { width: 72vw; max-width: 420px; height: auto; }
+
+  /* Produk unggulan grid */
+  .cont-img { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 14px; }
+  .img-card { width: 100%; max-width: 100%; }
+  .img-card .img1 { width: 100%; }
+
+  /* Kategori grid */
+  .category-flex { display: grid !important; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 12px; padding: 0 12px; }
+  .card1 { height: 100%; }
+
+  /* Keranjang */
+  .cart-container { display: flex; flex-direction: column; gap: 16px; padding: 0 14px; }
+  .cart-content, .cart-summary { width: 100% !important; }
+  .cart-item { flex-direction: column; align-items: flex-start; gap: 10px; }
+  .cart-item-image { width: 100%; max-width: 420px; height: auto; }
+  .cart-item-controls { width: 100%; gap: 8px; flex-wrap: wrap; }
+
+  /* Footer */
+  .footer-links { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 10px; }
+  .footer { padding: 16px; text-align: center; }
+}
+
+@media (max-width: 480px) {
+  .hero-t1 { font-size: 1.55rem; }
+  .cont-img { grid-template-columns: 1fr; }
+  .category-flex { grid-template-columns: 1fr; }
+  .dropdown-btn { width: 100%; }
+  .footer-links { grid-template-columns: 1fr; }
 }
 
 .img-card .img-text1,
