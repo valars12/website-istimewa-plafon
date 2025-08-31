@@ -1,25 +1,18 @@
 import React from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Award, CheckCircle, DollarSign } from 'lucide-react';
-import plafonPvc from '@/assets/plafon-pvc.jpg';
+// Gambar mengikuti aset public
+const images = {
+  premium: '/img/material premium.jpg',
+  pemasangan: '/img/about us 1.jpg',
+  harga: '/img/harga terjangkau.jpg',
+};
 
 const About = () => {
   const features = [
-    {
-      icon: Award,
-      title: 'Material Premium',
-      image: plafonPvc,
-    },
-    {
-      icon: CheckCircle,
-      title: 'Bergaransi & Terpercaya',
-      image: plafonPvc,
-    },
-    {
-      icon: DollarSign,
-      title: 'Harga Kompetitif',
-      image: plafonPvc,
-    },
+    { icon: Award,       title: 'Kualitas Premium',   image: images.premium },
+    { icon: CheckCircle, title: 'Pemasangan Profesional', image: images.pemasangan },
+    { icon: DollarSign,  title: 'Harga Terjangkau',   image: images.harga },
   ];
 
   return (

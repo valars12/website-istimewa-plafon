@@ -1,168 +1,155 @@
-import React, { useState } from 'react';
-import { Button } from '@/components/ui/button';
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from '@/components/ui/dropdown-menu';
+import React, { useEffect, useMemo, useState } from 'react';
 import { Menu, X, ShoppingCart, ChevronDown } from 'lucide-react';
-import logo from '@/assets/logo.jpg';
 
-const Header = () => {
+const logo = '/img/logo.jpg';
+
+const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [cartCount, setCartCount] = useState(0);
 
-  const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
+  type NavItem = { label: string; href: string } | { label: string; children: { label: string; href: string }[] };
+  const navLinks: NavItem[] = useMemo(
+    () => [
+      { label: 'Beranda', href: '/' },
+      { label: 'Produk', href: '/produk.html' },
+      {
+        label: 'Kategori',
+        children: [
+          { label: 'WPC Premium', href: '/kategori.html#wpc-premium' },
+          { label: 'PVC', href: '/kategori.html#pvc' },
+          { label: 'WPC Wallpanel', href: '/kategori.html#wpc-wallpanel' },
+        ],
+      },
+      { label: 'Tentang Kami', href: '/tentang.html' },
+      { label: 'Kontak', href: '/kontak.html' },
+    ],
+    []
+  );
+
+  const toggleMenu = () => setIsMenuOpen((v) => !v);
+
+  const computeCartCount = () => {
+    try {
+      const raw = JSON.parse(localStorage.getItem('cart') || '[]');
+      const list: { quantity?: number }[] = Array.isArray(raw) ? raw : [];
+      const total = list.reduce((sum: number, item) => sum + (item.quantity || 0), 0);
+      setCartCount(total);
+    } catch {
+      setCartCount(0);
+    }
+  };
+
+  useEffect(() => {
+    computeCartCount();
+    const onStorage = (e: StorageEvent) => {
+      if (e.key === 'cart') computeCartCount();
+    };
+    const onCustom = () => computeCartCount();
+    window.addEventListener('storage', onStorage);
+    window.addEventListener('cart:updated', onCustom as EventListener);
+    return () => {
+      window.removeEventListener('storage', onStorage);
+      window.removeEventListener('cart:updated', onCustom as EventListener);
+    };
+  }, []);
 
   return (
-    <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-border shadow-card">
+    <header className="sticky top-0 z-50 bg-white/95 backdrop-blur border-b border-black/5">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
-          <div className="flex-shrink-0">
-            <img 
-              src={logo} 
-              alt="Istimewa Plafon Logo" 
-              className="h-12 w-12 md:h-16 md:w-16 rounded-lg object-cover shadow-card transition-smooth hover:shadow-hover hover:scale-105"
+          <a href="/" className="flex items-center gap-3">
+            <img
+              src={logo}
+              alt="Istimewa Plafon Logo"
+              className="h-10 w-10 md:h-12 md:w-12 rounded-lg object-cover"
             />
-          </div>
+            <span className="font-semibold hidden sm:block">Istimewa Plafon</span>
+          </a>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-8">
-            <a 
-              href="#beranda" 
-              className="text-muted-foreground hover:text-primary font-medium transition-smooth relative group px-2 py-1"
-            >
-              Beranda
-              <span className="absolute bottom-0 left-0 w-full h-0.5 bg-gradient-primary transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
-            </a>
-            <a 
-              href="#produk" 
-              className="text-muted-foreground hover:text-primary font-medium transition-smooth relative group px-2 py-1"
-            >
-              Produk
-              <span className="absolute bottom-0 left-0 w-full h-0.5 bg-gradient-primary transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
-            </a>
-            <DropdownMenu>
-              <DropdownMenuTrigger asChild>
-                <Button 
-                  variant="gradient" 
-                  className="gap-1 px-4 py-2"
+          {/* Desktop Nav */}
+          <nav className="hidden md:flex items-center gap-6">
+            {navLinks.map((link) =>
+              'children' in link ? (
+                <div className="relative group" key={link.label}>
+                  <button className="inline-flex items-center gap-1 text-sm font-medium text-gray-700 hover:text-primary">
+                    {link.label}
+                    <ChevronDown className="h-4 w-4" />
+                  </button>
+                  <div className="absolute left-0 mt-2 hidden group-hover:block bg-white shadow-lg rounded-md border p-2 min-w-48">
+                    {link.children.map((child) => (
+                      <a
+                        key={child.label}
+                        href={child.href}
+                        className="block px-3 py-2 text-sm text-gray-700 hover:text-primary hover:bg-gray-50 rounded"
+                      >
+                        {child.label}
+                      </a>
+                    ))}
+                  </div>
+                </div>
+              ) : (
+                <a
+                  key={link.label}
+                  href={link.href}
+                  className="text-sm font-medium text-gray-700 hover:text-primary"
                 >
-                  Kategori
-                  <ChevronDown className="h-4 w-4" />
-                </Button>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent 
-                align="start" 
-                className="w-56 bg-white border border-border shadow-hover rounded-xl"
-              >
-                <DropdownMenuItem className="hover:bg-primary/5 hover:text-primary transition-smooth">
-                  Plafon PVC Glossy
-                </DropdownMenuItem>
-                <DropdownMenuItem className="hover:bg-primary/5 hover:text-primary transition-smooth">
-                  Plafon PVC Motif Kayu
-                </DropdownMenuItem>
-                <DropdownMenuItem className="hover:bg-primary/5 hover:text-primary transition-smooth">
-                  Plafon PVC Putih Polos
-                </DropdownMenuItem>
-                <DropdownMenuItem className="hover:bg-primary/5 hover:text-primary transition-smooth">
-                  Plafon PVC Premium
-                </DropdownMenuItem>
-                <DropdownMenuItem className="hover:bg-primary/5 hover:text-primary transition-smooth">
-                  Plafon PVC Minimalis
-                </DropdownMenuItem>
-              </DropdownMenuContent>
-            </DropdownMenu>
-            <a 
-              href="#kontak" 
-              className="text-muted-foreground hover:text-primary font-medium transition-smooth relative group px-2 py-1"
-            >
-              Kontak
-              <span className="absolute bottom-0 left-0 w-full h-0.5 bg-gradient-primary transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
-            </a>
-            <a 
-              href="#tentang" 
-              className="text-muted-foreground hover:text-primary font-medium transition-smooth relative group px-2 py-1"
-            >
-              Tentang Kami
-              <span className="absolute bottom-0 left-0 w-full h-0.5 bg-gradient-primary transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
+                  {link.label}
+                </a>
+              )
+            )}
+
+            <a href="/keranjang.html" className="relative inline-flex items-center gap-2">
+              <ShoppingCart className="h-5 w-5" />
+              <span className="text-sm">Keranjang</span>
+              {cartCount > 0 && (
+                <span className="absolute -top-2 -right-3 bg-primary text-white text-xs rounded-full px-2 py-0.5">
+                  {cartCount}
+                </span>
+              )}
             </a>
           </nav>
 
-          {/* Order Button */}
-          <Button variant="order" className="hidden md:flex items-center gap-2 px-4 py-2">
-            <ShoppingCart className="h-4 w-4" />
-            Pesan
-          </Button>
-
-          {/* Mobile menu button */}
-          <Button
-            variant="ghost"
-            size="icon"
-            className="md:hidden"
-            onClick={toggleMenu}
-          >
+          {/* Mobile Toggle */}
+          <button className="md:hidden" onClick={toggleMenu} aria-label="Toggle menu">
             {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-          </Button>
+          </button>
         </div>
 
-        {/* Mobile Navigation */}
+        {/* Mobile Menu */}
         {isMenuOpen && (
-          <div className="md:hidden py-4 border-t border-border bg-white/95 backdrop-blur-sm">
-            <nav className="flex flex-col space-y-3">
-              <a 
-                href="#beranda" 
-                className="text-muted-foreground hover:text-primary font-medium transition-smooth px-2 py-2"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Beranda
+          <div className="md:hidden border-t border-black/5 py-3">
+            <div className="flex flex-col gap-1">
+              {navLinks.map((link) =>
+                'children' in link ? (
+                  <div key={link.label} className="px-2">
+                    <div className="text-sm font-semibold text-gray-700 mb-1">{link.label}</div>
+                    <div className="ml-2 flex flex-col">
+                      {link.children.map((child) => (
+                        <a
+                          key={child.label}
+                          href={child.href}
+                          className="px-2 py-1.5 text-sm text-gray-700 rounded hover:bg-gray-50"
+                        >
+                          {child.label}
+                        </a>
+                      ))}
+                    </div>
+                  </div>
+                ) : (
+                  <a key={link.label} href={link.href} className="px-2 py-1.5 text-sm text-gray-700 hover:bg-gray-50 rounded">
+                    {link.label}
+                  </a>
+                )
+              )}
+
+              <a href="/keranjang.html" className="px-2 py-1.5 text-sm text-gray-700 hover:bg-gray-50 rounded inline-flex items-center gap-2">
+                <ShoppingCart className="h-4 w-4" /> Keranjang
+                {cartCount > 0 && (
+                  <span className="ml-auto bg-primary text-white text-xs rounded-full px-2 py-0.5">{cartCount}</span>
+                )}
               </a>
-              <a 
-                href="#produk" 
-                className="text-muted-foreground hover:text-primary font-medium transition-smooth px-2 py-2"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Produk
-              </a>
-              <div className="px-2">
-                <DropdownMenu>
-                  <DropdownMenuTrigger asChild>
-                    <Button variant="gradient" size="sm" className="w-full justify-between">
-                      Kategori
-                      <ChevronDown className="h-4 w-4" />
-                    </Button>
-                  </DropdownMenuTrigger>
-                  <DropdownMenuContent className="w-full bg-white border border-border shadow-hover rounded-xl">
-                    <DropdownMenuItem>Plafon PVC Glossy</DropdownMenuItem>
-                    <DropdownMenuItem>Plafon PVC Motif Kayu</DropdownMenuItem>
-                    <DropdownMenuItem>Plafon PVC Putih Polos</DropdownMenuItem>
-                    <DropdownMenuItem>Plafon PVC Premium</DropdownMenuItem>
-                    <DropdownMenuItem>Plafon PVC Minimalis</DropdownMenuItem>
-                  </DropdownMenuContent>
-                </DropdownMenu>
-              </div>
-              <a 
-                href="#kontak" 
-                className="text-muted-foreground hover:text-primary font-medium transition-smooth px-2 py-2"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Kontak
-              </a>
-              <a 
-                href="#tentang" 
-                className="text-muted-foreground hover:text-primary font-medium transition-smooth px-2 py-2"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Tentang Kami
-              </a>
-              <div className="px-2 pt-2">
-                <Button variant="order" className="w-full gap-2">
-                  <ShoppingCart className="h-4 w-4" />
-                  Pesan
-                </Button>
-              </div>
-            </nav>
+            </div>
           </div>
         )}
       </div>

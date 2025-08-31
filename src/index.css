@@ -79,8 +79,9 @@ All colors MUST be HSL.
     --popover: 222.2 84% 4.9%;
     --popover-foreground: 210 40% 98%;
 
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
+    --primary: 214 100% 50%;          /* Warna biru cerah */
+    --primary-foreground: 0 0% 100%;   /* Text putih */
+    --primary-hover: 214 100% 45%;     /* Warna hover lebih gelap */
 
     --secondary: 217.2 32.6% 17.5%;
     --secondary-foreground: 210 40% 98%;

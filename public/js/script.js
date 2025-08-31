@@ -19,8 +19,25 @@ document.getElementById('burger-menu').onclick = function() {
 // Cart functionality
 let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
+function detectUnitFromText(txt) {
+    if (!txt) return 'meter';
+    const t = txt.toLowerCase();
+    if (t.includes('gulung')) return 'Gulung';
+    if (t.includes('lembar')) return 'Lembar';
+    if (t.includes('meter')) return 'meter';
+    return 'meter';
+}
+
+function detectUnitFromName(name) {
+    const n = (name || '').toLowerCase();
+    if (n.includes('wallpanel') || n.includes('wallpaper')) return 'Gulung';
+    if (n.includes('wpc')) return 'Lembar';
+    if (n.includes('pvc')) return 'meter';
+    return 'meter';
+}
+
 // Add to cart function
-function addToCart(name, price, image, quantity = 1) {
+function addToCart(name, price, image, quantity = 1, unit) {
     const existingItem = cart.find(item => item.name === name);
     
     if (existingItem) {
@@ -30,12 +47,14 @@ function addToCart(name, price, image, quantity = 1) {
             name: name,
             price: price,
             image: image,
-            quantity: quantity
+            quantity: quantity,
+            unit: unit || detectUnitFromName(name)
         });
     }
     
     localStorage.setItem('cart', JSON.stringify(cart));
     updateCartCount();
+    try { window.dispatchEvent(new Event('cart:updated')); } catch (e) {}
     
     // Show notification
     showNotification(`${name} ditambahkan ke keranjang!`);
@@ -204,3 +223,34 @@ if (document.getElementById('product-container')) {
     // Initialize pagination
     renderProducts();
 }
+
+// Auto-extract product data for add-to-cart buttons across pages
+document.addEventListener('click', function (e) {
+    const target = e.target;
+    if (!target) return;
+
+    const isAddButton = target.classList.contains('add-to-cart-text') || target.classList.contains('plus-text');
+    if (!isAddButton) return;
+
+    // Prevent built-in inline onclick and handle centrally (capture phase)
+    e.preventDefault();
+    e.stopPropagation();
+
+    // Find closest card (produk.html/.kategori.html uses .card-image, index.html uses .img-card)
+    const card = target.closest('.card-image, .img-card');
+    if (!card) return;
+
+    const nameEl = card.querySelector('.title-text1, .img-text1');
+    const priceEl = card.querySelector('.cost-text, .price-text');
+    const imgEl = card.querySelector('img');
+
+    if (!nameEl || !priceEl || !imgEl) return;
+
+    const name = nameEl.textContent?.trim() || 'Produk';
+    const priceText = priceEl.textContent || '';
+    const price = parseInt(priceText.replace(/[^0-9]/g, ''), 10) || 0;
+    const image = imgEl.getAttribute('src') || '';
+    const unit = detectUnitFromText(priceText) || detectUnitFromName(name);
+
+    addToCart(name, price, image, 1, unit);
+}, true);

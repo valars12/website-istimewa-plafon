@@ -33,11 +33,14 @@ function renderCartItems(cart) {
     cart.forEach((item, index) => {
         const cartItem = document.createElement('div');
         cartItem.className = 'cart-item';
+        const unit = item.unit || 'meter';
+        const showMeasure = unit === 'meter';
+        const measureLabel = unit === 'meter' ? 'Panjang (m):' : unit === 'Lembar' ? 'Jumlah (lembar)' : 'Jumlah (gulung)';
         cartItem.innerHTML = `
             <img src="${item.image}" alt="${item.name}" class="cart-item-image">
             <div class="cart-item-details">
                 <h3 class="cart-item-name">${item.name}</h3>
-                <div class="cart-item-price">${formatPrice(item.price)}</div>
+                <div class="cart-item-price">${formatPrice(item.price)} <span style="color:#6b7280;font-weight:500;">/ ${unit}</span></div>
                 <div class="cart-item-controls">
                     <div class="quantity-control">
                         <button class="quantity-btn" onclick="updateQuantity(${index}, -1)">-</button>
@@ -45,11 +48,13 @@ function renderCartItems(cart) {
                                onchange="setQuantity(${index}, this.value)">
                         <button class="quantity-btn" onclick="updateQuantity(${index}, 1)">+</button>
                     </div>
+                    ${showMeasure ? `
                     <div class="area-control">
-                        <label>Luas (m²):</label>
+                        <label>${measureLabel}</label>
                         <input type="number" value="${item.area || 1}" min="0.1" step="0.1" class="area-input" 
                                onchange="setArea(${index}, this.value)" placeholder="1">
                     </div>
+                    ` : ''}
                     <button class="remove-btn" onclick="removeFromCart(${index})">Hapus</button>
                 </div>
             </div>
@@ -64,6 +69,7 @@ function updateQuantity(index, change) {
     localStorage.setItem('cart', JSON.stringify(cart));
     loadCartPage();
     updateCartCount();
+    try { window.dispatchEvent(new Event('cart:updated')); } catch (e) {}
 }
 
 function setQuantity(index, value) {
@@ -72,6 +78,7 @@ function setQuantity(index, value) {
     localStorage.setItem('cart', JSON.stringify(cart));
     loadCartPage();
     updateCartCount();
+    try { window.dispatchEvent(new Event('cart:updated')); } catch (e) {}
 }
 
 function setArea(index, value) {
@@ -79,6 +86,7 @@ function setArea(index, value) {
     cart[index].area = Math.max(0.1, parseFloat(value) || 1);
     localStorage.setItem('cart', JSON.stringify(cart));
     loadCartPage();
+    try { window.dispatchEvent(new Event('cart:updated')); } catch (e) {}
 }
 
 function removeFromCart(index) {
@@ -87,6 +95,7 @@ function removeFromCart(index) {
     localStorage.setItem('cart', JSON.stringify(cart));
     loadCartPage();
     updateCartCount();
+    try { window.dispatchEvent(new Event('cart:updated')); } catch (e) {}
     
     if (cart.length === 0) {
         showNotification('Keranjang sudah kosong');
@@ -99,17 +108,27 @@ function clearCart() {
         loadCartPage();
         updateCartCount();
         showNotification('Keranjang telah dikosongkan');
+        try { window.dispatchEvent(new Event('cart:updated')); } catch (e) {}
     }
 }
 
 function updateCartSummary(cart) {
-    const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
-    const totalArea = cart.reduce((sum, item) => sum + (item.area || 1) * item.quantity, 0);
-    const totalPrice = cart.reduce((sum, item) => sum + (item.price * (item.area || 1) * item.quantity), 0);
-    
-    document.getElementById('total-items').textContent = totalItems;
-    document.getElementById('total-area').textContent = `${totalArea.toFixed(1)} m²`;
-    document.getElementById('total-price').textContent = formatPrice(totalPrice);
+    const totalItems = cart.reduce((sum, item) => sum + (item.quantity || 0), 0);
+    const totalMeter = cart
+        .filter((i) => (i.unit || 'meter') === 'meter')
+        .reduce((sum, item) => sum + (item.quantity || 0) * (item.area || 1), 0);
+    const totalPrice = cart.reduce((sum, item) => {
+        const unit = item.unit || 'meter';
+        const measure = unit === 'meter' ? (item.area || 1) : 1;
+        return sum + (item.price * measure * (item.quantity || 0));
+    }, 0);
+
+    const itemsEl = document.getElementById('total-items');
+    const areaEl = document.getElementById('total-area');
+    const priceEl = document.getElementById('total-price');
+    if (itemsEl) itemsEl.textContent = totalItems.toString();
+    if (areaEl) areaEl.textContent = `${totalMeter.toFixed(1)} m`;
+    if (priceEl) priceEl.textContent = formatPrice(totalPrice);
 }
 
 function formatPrice(price) {
@@ -134,18 +153,22 @@ function checkout() {
     
     cart.forEach((item, index) => {
         const area = item.area || 1;
-        const itemTotal = item.price * area * item.quantity;
+        const measure = (item.unit || 'meter') === 'meter' ? area : 1;
+        const itemTotal = item.price * measure * item.quantity;
         totalPrice += itemTotal;
-        totalArea += area * item.quantity;
+        totalArea += ((item.unit || 'meter') === 'meter') ? area * item.quantity : 0;
         
         message += `${index + 1}. ${item.name}\n`;
         message += `   Quantity: ${item.quantity}\n`;
-        message += `   Luas: ${area} m²\n`;
-        message += `   Harga: ${formatPrice(item.price)}/m²\n`;
+        if ((item.unit || 'meter') === 'meter') {
+          message += `   Panjang: ${area} m\n`;
+        }
+        message += `   Satuan: ${item.unit || 'meter'}\n`;
+        message += `   Harga: ${formatPrice(item.price)}\n`;
         message += `   Subtotal: ${formatPrice(itemTotal)}\n\n`;
     });
     
-    message += `Total Luas: ${totalArea.toFixed(1)} m²\n`;
+    if (totalArea > 0) message += `Total Meter (PVC): ${totalArea.toFixed(1)} m\n`;
     message += `Total Harga: ${formatPrice(totalPrice)}\n\n`;
     message += "Mohon informasi lebih lanjut mengenai ketersediaan dan proses pemesanan. Terima kasih!";
     

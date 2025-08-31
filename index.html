@@ -19,6 +19,11 @@
   </head>
 
   <body>
+    <script type="module">
+      if (import.meta.env && import.meta.env.DEV) {
+        window.location.replace('/public-index.html');
+      }
+    </script>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>

@@ -6,20 +6,23 @@ const Categories = () => {
   const categories = [
     {
       id: 1,
-      title: 'PVC',
-      description: 'Plafon gypsum dengan berbagai motif dan finishing',
-      icon: Building,
+      title: 'WPC Premium',
+      description: 'Material panel berkualitas tinggi berbahan campuran kayu dan plastik',
+      href: '/kategori.html#wpc-premium',
+      icon: Shield,
     },
     {
       id: 2,
-      title: 'WPC Premium',
-      description: 'Plafon PVC anti air dan tahan lama',
-      icon: Shield,
+      title: 'PVC',
+      description: 'Ringan dan tahan air, dengan berbagai motif elegan',
+      href: '/kategori.html#pvc',
+      icon: Building,
     },
     {
       id: 3,
       title: 'WPC Wallpanel',
-      description: 'Plafon peredam suara untuk ruangan khusus',
+      description: 'Panel dinding kuat, tahan air, anti rayap, menyerupai kayu alami',
+      href: '/kategori.html#wpc-wallpanel',
       icon: Zap,
     },
   ];
@@ -40,10 +43,10 @@ const Categories = () => {
         {/* Categories Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {categories.map((category) => (
-            <Card 
-              key={category.id}
-              className="group bg-gradient-card border border-border/50 shadow-card hover:shadow-hover transition-smooth hover:-translate-y-2 hover:bg-gradient-primary cursor-pointer"
-            >
+            <a key={category.id} href={category.href} className="block">
+              <Card 
+                className="group bg-gradient-card border border-border/50 shadow-card hover:shadow-hover transition-smooth hover:-translate-y-2 hover:bg-gradient-primary cursor-pointer"
+              >
               <CardContent className="p-8 text-center space-y-6">
                 <div className="w-16 h-16 mx-auto bg-primary/10 rounded-2xl flex items-center justify-center group-hover:bg-white/20 transition-smooth">
                   <category.icon className="h-8 w-8 text-primary group-hover:text-white transition-smooth" />
@@ -55,7 +58,8 @@ const Categories = () => {
                   {category.description}
                 </p>
               </CardContent>
-            </Card>
+              </Card>
+            </a>
           ))}
         </div>
       </div>
