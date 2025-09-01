@@ -7,6 +7,16 @@ document.addEventListener('DOMContentLoaded', function() {
 
 function loadCartPage() {
     const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    // Normalize units: ornamen/figura/piting should not be 'meter'
+    let updated = false;
+    cart.forEach((it) => {
+        const n = (it.name || '').toLowerCase();
+        if ((n.includes('ornamen') || n.includes('ornament') || n.includes('figura') || n.includes('piting')) && (it.unit === 'meter' || !it.unit)) {
+            it.unit = 'pcs';
+            updated = true;
+        }
+    });
+    if (updated) localStorage.setItem('cart', JSON.stringify(cart));
     const cartContent = document.getElementById('cart-content');
     const cartSummary = document.getElementById('cart-summary');
     const emptyCart = document.getElementById('empty-cart');

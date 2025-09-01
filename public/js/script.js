@@ -20,12 +20,13 @@ document.getElementById('burger-menu').onclick = function() {
 let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
 function detectUnitFromText(txt) {
-    if (!txt) return 'meter';
+    // Default to 'pcs' when unit not explicitly written in price text
+    if (!txt) return 'pcs';
     const t = txt.toLowerCase();
     if (t.includes('gulung')) return 'Gulung';
     if (t.includes('lembar')) return 'Lembar';
     if (t.includes('meter')) return 'meter';
-    return 'meter';
+    return 'pcs';
 }
 
 function detectUnitFromName(name) {
@@ -33,7 +34,9 @@ function detectUnitFromName(name) {
     if (n.includes('wallpanel') || n.includes('wallpaper')) return 'Gulung';
     if (n.includes('wpc')) return 'Lembar';
     if (n.includes('pvc')) return 'meter';
-    return 'meter';
+    // Ornamen, ornamen grup, figura, piting tidak memakai satuan panjang
+    if (n.includes('ornamen') || n.includes('ornament') || n.includes('figura') || n.includes('piting')) return 'pcs';
+    return 'pcs';
 }
 
 // Add to cart function
