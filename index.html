@@ -19,11 +19,21 @@
   </head>
 
   <body>
+    <!--
+      Production-safe redirect:
+      On shared hosting (Apache/cPanel), we want the static site under
+      /public/index.html to be the homepage without renaming files.
+      When NOT in Vite dev mode, redirect immediately to the static site.
+    -->
     <script type="module">
-      if (import.meta.env && import.meta.env.DEV) {
-        window.location.replace('/public-index.html');
+      const isDev = typeof import.meta !== 'undefined' && import.meta && import.meta.env && import.meta.env.DEV;
+      if (!isDev) {
+        window.location.replace('/public/index.html');
       }
     </script>
+    <noscript>
+      <meta http-equiv="refresh" content="0; url=/public/index.html" />
+    </noscript>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
