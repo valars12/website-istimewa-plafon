@@ -54,7 +54,7 @@ ${formData.message}
 
     // Encode pesan untuk URL WhatsApp
     const encodedMessage = encodeURIComponent(whatsappMessage);
-    const whatsappURL = `https://wa.me/6281234567890?text=${encodedMessage}`;
+    const whatsappURL = `https://api.whatsapp.com/send?phone=6285797355484&text=${encodedMessage}`;
     
     // Buka WhatsApp
     window.open(whatsappURL, '_blank');

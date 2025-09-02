@@ -13,7 +13,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kontak - Istimewa Plafon</title>
     <link rel="icon" href="img/icon-logo.png">
-    <link rel="stylesheet" href="css/style.css?v=2">
+    <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
     <style>
       /* Hard override to ensure form rapi di hosting */
@@ -97,7 +97,7 @@
                     <div class="contact-method-content">
                         <h3>WhatsApp</h3>
                         <p>Konsultasi langsung dan cepat</p>
-                        <a href="https://wa.me/085797355484" class="contact-method-btn">
+                        <a href="https://api.whatsapp.com/send?phone=6285797355484" class="contact-method-btn">
                             Chat WhatsApp
                         </a>
                     </div>
@@ -111,8 +111,8 @@
                     <div class="contact-method-content">
                         <h3>Telepon</h3>
                         <p>Hubungi kami secara langsung</p>
-                        <a href="tel:085797355484" class="contact-method-btn">
-                            085797355484
+                        <a href="tel:+6285797355484" class="contact-method-btn">
+                            +6285797355484
                         </a>
                     </div>
                 </div>
@@ -216,7 +216,7 @@
             <a href="https://www.instagram.com/instimewaplafon86?igsh=MTdldG9udjJ1NW4ybQ==" class="footer-link">
                 <img src="img/instagram.png" alt="Instagram" class="footer-icon"> Instagram
             </a>
-            <a href="https://wa.me/085797355484" class="footer-link">
+            <a href="https://api.whatsapp.com/send?phone=6285797355484" class="footer-link">
                 <img src="img/whatsapp.png" alt="WhatsApp" class="footer-icon"> WhatsApp
             </a>
             <a href="mailto:istimewaplafon@gmail.com" class="footer-link">
@@ -256,7 +256,7 @@
             whatsappMessage += `Pesan:\n${message}`;
             
             const encodedMessage = encodeURIComponent(whatsappMessage);
-            const whatsappUrl = `https://wa.me/085797355484?text=${encodedMessage}`;
+            const whatsappUrl = `https://api.whatsapp.com/send?phone=6285797355484&text=${encodedMessage}`;
             
             window.open(whatsappUrl, '_blank');
         }

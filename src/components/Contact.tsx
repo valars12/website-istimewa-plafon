@@ -31,7 +31,7 @@ const Contact = () => {
       '%0A',
       `Pesan:%0A${encodeURIComponent(formData.message)}`,
     ].join('');
-  const wa = `https://wa.me/085797355484?text=${lines}`;
+  const wa = `https://api.whatsapp.com/send?phone=6285797355484&text=${lines}`;
     window.open(wa, '_blank');
     toast({ title: 'Mengarahkan ke WhatsApp…', description: 'Pesan Anda akan dikirim via WhatsApp.' });
     setFormData({ name: '', email: '', message: '' });
@@ -59,7 +59,7 @@ const Contact = () => {
         </div>
         {/* Contact Methods */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 mb-12">
-          <a href="https://wa.me/085797355484" target="_blank" className="group block no-underline" rel="noreferrer">
+          <a href="https://api.whatsapp.com/send?phone=6285797355484" target="_blank" className="group block no-underline" rel="noreferrer">
             <Card className="border shadow-card hover:shadow-hover transition-smooth">
               <CardContent className="p-6 flex items-start gap-4">
                 <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-smooth">
@@ -72,7 +72,7 @@ const Contact = () => {
               </CardContent>
             </Card>
           </a>
-          <a href="tel:085797355484" className="group block no-underline">
+          <a href="tel:+6285797355484" className="group block no-underline">
             <Card className="border shadow-card hover:shadow-hover transition-smooth">
               <CardContent className="p-6 flex items-start gap-4">
                 <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-smooth">
@@ -205,3 +205,4 @@ const Contact = () => {
 };
 
 export default Contact;
+

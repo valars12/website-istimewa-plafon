@@ -58,7 +58,7 @@ Catatan: skrip `dev` akan membuka aplikasi secara otomatis di browser.
 
 Ubah informasi kontak atau tautan sosial pada file berikut bila diperlukan:
 
-- `src/components/Contact.tsx`: Nomor WhatsApp (`wa.me/085797355484`) dan email (`istimewaplafon@gmail.com`).
+- `src/components/Contact.tsx`: Nomor WhatsApp (`api.whatsapp.com/send?phone=6285797355484`) dan email (`istimewaplafon@gmail.com`).
 - `src/components/Footer.tsx`: Tautan Instagram, WhatsApp, Email, dan Alamat Google Maps.
 - `src/components/ContactForm.tsx`: Pengiriman pesan via WhatsApp dari form.
 - `src/components/Header.tsx`: Tautan navigasi seperti Produk, Kategori, Tentang, dan Kontak.
@@ -77,8 +77,9 @@ Langkah umum (contoh Vercel/Netlify):
 
 ## Kontak
 
-- WhatsApp: https://wa.me/085797355484
+- WhatsApp: https://api.whatsapp.com/send?phone=6285797355484
 - Email: istimewaplafon@gmail.com
 - Instagram: https://www.instagram.com/instimewaplafon86
 
 &copy; 2025 Istimewa Plafon. Seluruh hak cipta dilindungi.
+

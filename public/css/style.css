@@ -228,14 +228,16 @@ nav .nav-list > .nav-top:hover::after {
     max-width: 1280px;
     display: flex;
     align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    flex-wrap: wrap;
 }
 
 .hero-card-img .hero-img {
-    width: 32em;
-    height: 28em;
+    width: clamp(240px, 34vw, 520px);
+    height: auto;
     border-radius: 12px;
-    padding: 70px;
-    image-resolution: high;
+    padding: 0;
 }
 
 .hero-text .hero-t1 {
@@ -342,9 +344,11 @@ nav .nav-list > .nav-top:hover::after {
 
 .cont-img {
     margin-top: 50px;
-    display: flex;
-    gap: 10px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
     justify-content: center;
+    align-items: stretch;
 }
 
 .img-card {
@@ -2208,3 +2212,4 @@ nav .nav-list > .nav-top:hover::after {
   align-items: start;
   margin-bottom: 80px;
 }
+
