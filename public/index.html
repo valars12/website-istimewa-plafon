@@ -1,6 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script>
+      // Set <base> to the current directory so all relative links
+      // and assets work whether the site is at domain root or in a subfolder.
+      (function(){
+        var baseHref = location.pathname.substring(0, location.pathname.lastIndexOf('/') + 1);
+        var b = document.createElement('base');
+        b.setAttribute('href', baseHref || '/');
+        document.head.prepend(b);
+      })();
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Istimewa Plafon - Plafon PVC Berkualitas Premium</title>
@@ -25,7 +35,7 @@
                 <span></span>
             </div>
             <ul class="nav-list" id="nav-list">
-                <a href="/" class="nav-top"><li class="nav-top">Beranda</li></a>
+                <a href="index.html" class="nav-top"><li class="nav-top">Beranda</li></a>
                 <a href="produk.html" class="nav-top"><li class="nav-top">Produk</li></a>
                 <li class="nav-top category-dropdown">
                     <button class="dropdown-btn">Kategori</button>
@@ -330,7 +340,7 @@
             <a href="https://www.instagram.com/instimewaplafon86?igsh=MTdldG9udjJ1NW4ybQ==" class="footer-link" data-aos="fade-up">
                 <img src="img/instagram.png" alt="Instagram" class="footer-icon"> Instagram
             </a>
-            <a href="https://wa.me/082136244654" class="footer-link" data-aos="fade-up" data-aos-delay="100">
+            <a href="https://wa.me/085797355484" class="footer-link" data-aos="fade-up" data-aos-delay="100">
                 <img src="img/whatsapp.png" alt="WhatsApp" class="footer-icon"> WhatsApp
             </a>
             <a href="mailto:istimewaplafon@gmail.com" class="footer-link" data-aos="fade-up" data-aos-delay="200">

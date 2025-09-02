@@ -183,7 +183,7 @@ function checkout() {
     message += "Mohon informasi lebih lanjut mengenai ketersediaan dan proses pemesanan. Terima kasih!";
     
     const encodedMessage = encodeURIComponent(message);
-    const whatsappUrl = `https://wa.me/082136244654?text=${encodedMessage}`;
+    const whatsappUrl = `https://wa.me/085797355484?text=${encodedMessage}`;
     
     window.open(whatsappUrl, '_blank');
 }

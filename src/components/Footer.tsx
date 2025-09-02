@@ -12,7 +12,7 @@ const Footer = () => {
     {
       icon: MessageCircle,
       label: 'WhatsApp',
-      href: 'https://wa.me/082136244654',
+      href: 'https://wa.me/085797355484',
     },
     {
       icon: Mail,
