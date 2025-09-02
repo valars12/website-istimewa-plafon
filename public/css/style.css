@@ -4,8 +4,7 @@
     font-family: 'Roboto Flex', sans-serif;
     margin: 0;
     padding: 0;
-    margin-right: auto;
-    margin-left: auto;
+    box-sizing: border-box;
 }
 
 html {
@@ -1453,7 +1452,7 @@ nav .nav-list > .nav-top:hover::after {
 .contact-page-form .form-group input,
 .contact-page-form .form-group select,
 .contact-page-form .form-group textarea { width: 100%; }
-.contact-page-form .form-group label { text-align: left !important; }
+.contact-page-form .form-group label { text-align: left !important; display:block; }
 
 .form-group {
     display: flex;
